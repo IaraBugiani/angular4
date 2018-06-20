@@ -17,25 +17,11 @@ export class CustomersDetailsComponent implements OnInit {
   ngOnInit() {
   }
 
-  updateActive(isActive: boolean) {
-    this.customerService.updateCustomer(this.customer.id,
-      { name: this.customer.nome, age: this.customer.age, active: isActive })
-      .subscribe(
-      data => {
-        console.log(data);
-        this.customer = data as Customer;
-      },
-      error => console.log(error));
+  getDelete(): void {
+    this.customerService.getDelete(this.customer.id).then(() => this.goBack());
   }
 
-  deleteCustomer() {
-    this.customerService.deleteCustomer(this.customer.id)
-      .subscribe(
-      data => {
-        console.log(data);
-        this.listComponent.reloadData();
-      },
-      error => console.log(error));
+  goBack(): void {
+    window.location.replace('');
   }
-
 }
