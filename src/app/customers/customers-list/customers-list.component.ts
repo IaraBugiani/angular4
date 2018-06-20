@@ -11,23 +11,19 @@ import { Component, OnInit } from '@angular/core';
 export class CustomersListComponent implements OnInit {
 
   customers: any;
+  nome: string;
 
   constructor(private customerService: CustomerService) { }
 
   ngOnInit() {
-    this.reloadData();
+    this.nome = '';
   }
 
-  deleteCustomers() {
-    this.customerService.deleteAll().subscribe( data => {
-      console.log(data);
-      this.reloadData();
-    },
-    error => console.log('ERROR: ' + error));
+  private customersListComponent() {
+    this.customerService.getCustomersByNome(this.nome).then(nome => this.customers = nome);
   }
 
-  reloadData() {
-    this.customers = this.customerService.getCustomer();
+  onSubmit() {
+    this.customersListComponent();
   }
-
 }

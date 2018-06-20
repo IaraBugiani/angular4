@@ -1,9 +1,19 @@
-<h1>Customers</h1>
+<h3>Find By Nome</h3>
+<div style="width: 300px;">
+	<form (ngSubmit)="onSubmit()">
+		<div class="form-group">
+			<label for="nome">Nome</label> <input type="text"
+				class="form-control" id="nome" required [(ngModel)]="nome"
+				name="nome">
+		</div>
  
-<div *ngFor="let customer of customers | async" style="width: 300px;">
-	<app-customers-details [customer]='customer'></app-customers-details>
+		<div class="btn-group">
+			<button type="submit" class="btn btn-success">Submit</button>
+		</div>
+	</form>
 </div>
- 
-<div>
-	<button type="button" class="button btn-danger" (click)='deleteCustomers()'>Delete All</button>
-</div>
+<ul>
+	<li *ngFor="let cust of customers">
+		<h4>{{cust.id}} - {{cust.nome}} {{cust.sobrenome}}</h4>
+	</li>
+</ul>

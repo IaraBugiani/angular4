@@ -1,0 +1,8 @@
+<ul>
+		<li *ngFor="let cust of customers"
+		[class.selected]="cust === selectedCustomer" (click)="onSelect(cust)">
+		<h4>{{cust.id}} - {{cust.nome}} {{cust.sobrenome}}</h4> 
+	</li>
+		<button class="btn btn-primary" (click)="deleteAll()">Delete All</button>
+</ul>
+<app-customers-details [customer]="selectedCustomer"></app-customers-details>

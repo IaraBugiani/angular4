@@ -1,13 +1,9 @@
-<div class="container-fluid">
-	<div style="color: blue;">
-		<h1>{{title}}</h1>
-		<h3>{{description}}</h3>
-	</div>
- 
+<div style="padding: 20px;">
+	<h2 style="color: blue">JSA - Angular Application!</h2>
 	<nav>
-		<a routerLink="customers" class="btn btn-primary active" role="button" routerLinkActive="active">Customers</a>
-		<a routerLink="add" class="btn btn-primary active" role="button" routerLinkActive="active">Add</a>
+		<a routerLink="customer" class="btn btn-primary active" role="button" routerLinkActive="active">Customers</a>
+		<a routerLink="add"	class="btn btn-primary active" role="button" routerLinkActive="active">Add</a>
+		<a routerLink="findByNome"	class="btn btn-primary active" role="button" routerLinkActive="active">Search</a>
 	</nav>
 	<router-outlet></router-outlet>
 </div>
-
